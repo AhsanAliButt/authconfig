@@ -1,5 +1,5 @@
 import "./App.css";
-import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/auth/SignUp/SignUp";
 // import { themeSettings } from "./theme";
 // import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       {/* <ThemeProvider theme={theme}> */}
-      <SignIn />
+      <SignUp />
       {/* </ThemeProvider> */}
     </>
   );

@@ -10,6 +10,9 @@ import FormControl from "@mui/material/FormControl";
 import { useState, useEffect } from "react";
 // import { useTheme } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+import Alerts from "../../../components/commonComponents/alert/Alerts";
 
 const initialState = {
   username: "",
@@ -18,8 +21,10 @@ const initialState = {
   gender: "",
 };
 console.log(initialState);
-const SignIn = () => {
+const SignUp = () => {
   const [formData, setFormData] = useState(initialState);
+  const [showError, setShowError] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   // const theme = useTheme();
   console.log(formData);
   const { username, password, age, gender } = formData;
@@ -28,14 +33,36 @@ const SignIn = () => {
   }, [formData]);
   const handleSignUp = () => {
     if (!username || !password || !age || !gender) {
-      alert("Please enter All required information");
+      setShowError(true);
+      setTimeout(() => {
+        setShowError(false);
+      }, 6000);
     } else {
-      alert("You have succefully signed up");
+      setShowSuccess(true);
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 4000);
     }
+  };
+  const handleCloseAlert = () => {
+    setShowError(false);
   };
 
   return (
     <>
+      {showError && (
+        <Alert
+          severity="error"
+          action={<Button onClick={handleCloseAlert}>OK</Button>}
+        >
+          Please fill out all fields before signing up.
+        </Alert>
+      )}
+      {showSuccess && (
+        <Alert severity="success">
+          Congrats you are successfully signed up
+        </Alert>
+      )}
       <div
         className="mainPage"
         style={{
@@ -206,4 +233,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;
