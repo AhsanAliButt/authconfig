@@ -1,38 +1,21 @@
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-import "./style.css";
 import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import { useState, useEffect } from "react";
+
+import { useState } from "react";
 // import { useTheme } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
-import Alerts from "../../../components/commonComponents/alert/Alerts";
+import { Link } from "react-router-dom";
 
-const initialState = {
-  username: "",
-  password: "",
-  age: "",
-  gender: "",
-};
-console.log(initialState);
-const SignUp = () => {
-  const [formData, setFormData] = useState(initialState);
+const SignIn = () => {
   const [showError, setShowError] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   // const theme = useTheme();
-  console.log(formData);
-  const { username, password, age, gender } = formData;
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
-  const handleSignUp = () => {
-    if (!username || !password || !age || !gender) {
+  const handleSignIn = () => {
+    if (!username || !password) {
       setShowError(true);
       setTimeout(() => {
         setShowError(false);
@@ -55,13 +38,11 @@ const SignUp = () => {
           severity="error"
           action={<Button onClick={handleCloseAlert}>OK</Button>}
         >
-          Please fill out all fields before signing up.
+          Please fill out all fields before signIn.
         </Alert>
       )}
       {showSuccess && (
-        <Alert severity="success">
-          Congrats you are successfully signed up
-        </Alert>
+        <Alert severity="success">Congrats you are successfully signedIn</Alert>
       )}
       <div
         className="mainPage"
@@ -89,7 +70,7 @@ const SignUp = () => {
               color={"#49515A"}
               fontWeight={600}
             >
-              Welcome to our SignUp Page
+              Welcome to our SignIn Page
             </Typography>
             <Box mt={4} width={"300px"} textAlign={"left"}>
               <Typography
@@ -117,11 +98,9 @@ const SignUp = () => {
                   }}
                   placeholder="please enter a username"
                   defaultValue="UserName"
-                  value={formData.username}
+                  value={username}
                   fullWidth
-                  onChange={(e) =>
-                    setFormData({ ...formData, username: e.target.value })
-                  }
+                  onChange={(e) => setUsername(e.target.value)}
                 />
               </Box>
               <Typography
@@ -147,83 +126,21 @@ const SignUp = () => {
                 type="password"
                 placeholder="please enter password"
                 autoComplete="current-password"
-                value={formData.password}
-                onChange={(e) =>
-                  setFormData({ ...formData, password: e.target.value })
-                }
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
-
-              <Typography
-                variant="h6"
-                component="h2"
-                mt={2}
-                color={"#49515A"}
-                fontSize={16}
-                fontFamily={"inherit"}
-                fontWeight={500}
-                mb={1}
-              >
-                Age
-              </Typography>
-              <TextField
-                id="outlined-required"
-                type="date"
-                fullWidth
-                value={formData.age}
-                onChange={(e) =>
-                  setFormData({ ...formData, age: e.target.value })
-                }
-              />
-
-              <Typography
-                variant="h6"
-                component="h2"
-                mt={2}
-                color={"#49515A"}
-                fontSize={16}
-                fontFamily={"inherit"}
-                fontWeight={500}
-              >
-                {" "}
-                Gender
-              </Typography>
-              <FormControl>
-                <RadioGroup
-                  row
-                  aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
-                  value={formData.gender}
-                  onChange={(e) =>
-                    setFormData({ ...formData, gender: e.target.value })
-                  }
-                >
-                  <FormControlLabel
-                    value="female"
-                    control={<Radio />}
-                    label="Male"
-                  />
-                  <FormControlLabel
-                    value="male"
-                    control={<Radio />}
-                    label="Female"
-                  />
-                  <FormControlLabel
-                    value="other"
-                    control={<Radio />}
-                    label="Other"
-                  />
-                </RadioGroup>
-              </FormControl>
             </Box>
-            <Box>
+            <Box mt={4} display={"flex"} justifyContent={"space-between"}>
+              <Link to="/signup">SignUp</Link>
+
               <Button
                 variant="contained"
-                onClick={handleSignUp}
+                onClick={handleSignIn}
                 sx={{
                   width: "200px",
                 }}
               >
-                Signup
+                SignIn
               </Button>
             </Box>
           </Box>
@@ -233,4 +150,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;
