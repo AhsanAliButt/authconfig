@@ -4,6 +4,7 @@ import AppRouter from "./pages/routing/routing";
 // import { themeSettings } from "./theme";
 // import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { store } from "./store/config/config";
+import { moviesData } from "./components/commonComponents/data/data";
 
 // const theme = () => createTheme({ themeSettings });
 // console.log(theme);
