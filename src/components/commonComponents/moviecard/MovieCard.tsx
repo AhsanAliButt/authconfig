@@ -13,6 +13,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const MovieCard = ({ title, description, year, votes }) => {
   return (
@@ -48,7 +49,9 @@ const MovieCard = ({ title, description, year, votes }) => {
             <FavoriteIcon />
           </IconButton>
           <IconButton aria-label="share">
-            <ShareIcon />
+            <Link to="/rating">
+              <ShareIcon />
+            </Link>
           </IconButton>
         </CardActions>
       </Card>
