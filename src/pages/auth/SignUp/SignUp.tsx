@@ -11,8 +11,6 @@ import { useState, useEffect } from "react";
 // import { useTheme } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
-import Alerts from "../../../components/commonComponents/alert/Alerts";
 
 const initialState = {
   username: "",

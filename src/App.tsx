@@ -1,8 +1,9 @@
+import { Provider } from "react-redux";
 import "./App.css";
-import SignUp from "./pages/auth/SignUp/SignUp";
 import AppRouter from "./pages/routing/routing";
 // import { themeSettings } from "./theme";
 // import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { store } from "./store/config/config";
 
 // const theme = () => createTheme({ themeSettings });
 // console.log(theme);
@@ -10,8 +11,10 @@ import AppRouter from "./pages/routing/routing";
 function App() {
   return (
     <>
-      {/* <ThemeProvider theme={theme}> */}
-      <AppRouter />
+      <Provider store={store}>
+        {/* <ThemeProvider theme={theme}> */}
+        <AppRouter />
+      </Provider>
       {/* <SignUp /> */}
       {/* </ThemeProvider> */}
     </>
