@@ -24,9 +24,9 @@ const MoviesPage = () => {
 
   // dispatch(addmovies(moviesData)
 
-  console.log("movies", movies);
-  // const moviesD = movies[0];
-  // console.log("moviesD", moviesD);
+  // console.log("movies", movies);
+  const moviesD = movies[0];
+  console.log("moviesD", moviesD);
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
