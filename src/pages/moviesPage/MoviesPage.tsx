@@ -1,16 +1,20 @@
-// import { useSelector, useDispatch } from "react-redux";
-// import { RootState } from "../../store/config/config";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../store/config/config";
 import { moviesData } from "../../components/commonComponents/data/data";
 // import { addmovies } from "../../store/slicers/movieSlice";
 import { styled } from "@mui/material/styles";
 import MovieCard from "../../components/commonComponents/moviecard/MovieCard";
 import { Box } from "@mui/material";
 import Grid from "@mui/material/Grid";
+import { addmovies } from "../../store/slicers/movieSlice";
+import { useEffect } from "react";
 
 const MoviesPage = () => {
-  //   const dispatch = useDispatch();
-  //   console.log("moviesData", moviesData);
-  console.log("movies", moviesData);
+  const movies = useSelector((state: RootState) => state.movies);
+  const dispatch = useDispatch();
+  // dispatch(addmovies(moviesData)
+
+  console.log("movies", movies);
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>

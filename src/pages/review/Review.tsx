@@ -6,8 +6,7 @@ import { useState } from "react";
 
 export default function HalfRating() {
   const [userRating, setUserRating] = useState();
-  // const handleRatingChange = (event, newValue) => {
-  //   setUserRating(newValue);
+  console.log("setUserRating", userRating);
   return (
     <Box
       width={"300px"}
@@ -22,7 +21,14 @@ export default function HalfRating() {
     >
       <Typography>how much stars you want to give ?</Typography>
       <Stack spacing={1}>
-        <Rating name="half-rating" defaultValue={0} precision={0.5} />
+        <Rating
+          name="half-rating"
+          defaultValue={0}
+          precision={0.5}
+          onChange={(event, newValue) => {
+            setUserRating(newValue);
+          }}
+        />
       </Stack>
     </Box>
   );
