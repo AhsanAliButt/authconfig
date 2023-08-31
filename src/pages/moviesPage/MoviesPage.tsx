@@ -12,9 +12,21 @@ import { useEffect } from "react";
 const MoviesPage = () => {
   const movies = useSelector((state: RootState) => state.movies);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    // Dispatch the action with the initial movie data
+    if (movies.length === 0) {
+      dispatch(addmovies(moviesData));
+    } else {
+      ("");
+    }
+  }, [movies]);
+
   // dispatch(addmovies(moviesData)
 
   console.log("movies", movies);
+  // const moviesD = movies[0];
+  // console.log("moviesD", moviesD);
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
