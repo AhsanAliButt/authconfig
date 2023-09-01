@@ -26,7 +26,7 @@ const MoviesPage = () => {
 
   // console.log("movies", movies);
   const moviesD = movies[0];
-  console.log("moviesD", moviesD);
+  console.log("moviesD", movies[0]);
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>

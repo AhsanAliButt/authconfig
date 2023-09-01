@@ -20,11 +20,11 @@ const MovieCard = ({ title, description, year, votes }) => {
     <div>
       <Card sx={{ maxWidth: 345 }}>
         <CardHeader
-          avatar={
-            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-              R
-            </Avatar>
-          }
+          // avatar={
+          //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+          //     R
+          //   </Avatar>
+          // }
           action={
             <IconButton aria-label="settings">
               <MoreVertIcon />
@@ -33,12 +33,12 @@ const MovieCard = ({ title, description, year, votes }) => {
           title={title}
           subheader={year}
         />
-        {/* <CardMedia
+        <CardMedia
           component="img"
           height="194"
-          image="/static/images/cards/paella.jpg"
+          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT649BBOS76TXnWQx18XbgPDS731-X7ipkH7fAUTSFu&s"
           alt="Paella dish"
-        /> */}
+        />
         <CardContent>
           <Typography variant="body2" color="text.secondary">
             {description}
@@ -49,7 +49,13 @@ const MovieCard = ({ title, description, year, votes }) => {
             <FavoriteIcon />
           </IconButton>
           <IconButton aria-label="share">
-            <Link to="/rating">
+            <Link
+              to="/rating"
+              style={{
+                display: "flex",
+              }}
+            >
+              <Typography mr={2}>Give Reciews</Typography>
               <ShareIcon />
             </Link>
           </IconButton>

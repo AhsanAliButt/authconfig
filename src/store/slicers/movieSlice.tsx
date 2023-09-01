@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface movies {
-  map(arg0: (item: any) => void): import("react").ReactNode;
+  map: any;
   title: string;
   year: number;
   votes: number;
